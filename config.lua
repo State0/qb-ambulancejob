@@ -2,8 +2,8 @@ Config = {}
 Config.UseTarget = GetConvar('UseTarget', 'false') == 'true' -- Use qb-target interactions (don't change this, go to your server.cfg and add setr UseTarget true)
 Config.MinimalDoctors = 2 -- How many players with the ambulance job to prevent the hospital check-in system from being used
 Config.WipeInventoryOnRespawn = true -- Enable or disable removing all the players items when they respawn at the hospital
-Config.Helicopter = "polmav" -- Helicopter model that players with the ambulance job can use
-Config.BillCost = 2000 -- Price that players are charged for using the hospital check-in system
+Config.Helicopter = "aw139" -- Helicopter model that players with the ambulance job can use
+Config.BillCost = 1000 -- Price that players are charged for using the hospital check-in system
 Config.DeathTime = 300 -- How long the timer is for players to bleed out completely and respawn at the hospital
 Config.PainkillerInterval = 60 -- Set the length of time painkillers last (per one)
 Config.HealthDamage = 5 -- Minumum damage done to health before checking for injuries
@@ -32,52 +32,55 @@ Config.DamageMinorToMajor = 35 -- How much damage would have to be applied for a
 Config.AlertShowInfo = 2 -- How many injuries a player must have before being alerted about them
 
 Config.Locations = { -- Edit the various interaction points for players or create new ones
-    ["checking"] = {
-	    [1] = vector3(308.19, -595.35, 43.29),
-	    [2] = vector3(-254.54, 6331.78, 32.43), -- paleto
-    },
-    ["duty"] = {
-        [1] = vector3(311.18, -599.25, 43.29),
-        [2] = vector3(-254.88, 6324.5, 32.58),
-    },
-    ["vehicle"] = {
-        [1] = vector4(294.578, -574.761, 43.179, 35.79),
-        [2] = vector4(-234.28, 6329.16, 32.15, 222.5),
-    },
-    ["helicopter"] = {
-        [1] = vector4(351.58, -587.45, 74.16, 160.5),
-        [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
-    },
-    ["armory"] = {
-        [1] = vector3(309.93, -602.94, 43.29),
-        [2] = vector3(-245.13, 6315.71, 32.82),
-    },
-    ["roof"] = {
-        [1] = vector4(338.5, -583.85, 74.16, 245.5),
-    },
-    ["main"] = {
-        [1] = vector3(298.74, -599.33, 43.29),
-    },
-    ["stash"] = {
-        [1] = vector3(309.78, -596.6, 43.29),
-    },
-    ["beds"] = {
-        [1] = {coords = vector4(353.1, -584.6, 43.11, 152.08), taken = false, model = 1631638868},
-        [2] = {coords = vector4(356.79, -585.86, 43.11, 152.08), taken = false, model = 1631638868},
-        [3] = {coords = vector4(354.12, -593.12, 43.1, 336.32), taken = false, model = 2117668672},
-        [4] = {coords = vector4(350.79, -591.8, 43.1, 336.32), taken = false, model = 2117668672},
-        [5] = {coords = vector4(346.99, -590.48, 43.1, 336.32), taken = false, model = 2117668672},
-        [6] = {coords = vector4(360.32, -587.19, 43.02, 152.08), taken = false, model = -1091386327},
-        [7] = {coords = vector4(349.82, -583.33, 43.02, 152.08), taken = false, model = -1091386327},
-        [8] = {coords = vector4(326.98, -576.17, 43.02, 152.08), taken = false, model = -1091386327},
-	--- paleto
-	    [9] = {coords = vector4(-252.43, 6312.25, 32.34, 313.48), taken = false, model = 2117668672},
-        [10] = {coords = vector4(-247.04, 6317.95, 32.34, 134.64), taken = false, model = 2117668672},
-        [11] = {coords = vector4(-255.98, 6315.67, 32.34, 313.91), taken = false, model = 2117668672},
-    },
-    ["stations"] = {
-        [1] = {label = Lang:t('info.pb_hospital'), coords = vector4(304.27, -600.33, 43.28, 272.249)}
-    }
+
+["checking"] = {
+    [1] = vector3(-434.13, -326.36, 34.91),
+    [2] = vector3(1132.89, 2100.21, 55.79), -- MX TRACK
+    [3] = vector3(-180.45, 406.34, 110.77), -- DrSchnippSchnapp
+},
+["duty"] = {
+    [1] = vector3(-432.31, -318.85, 34.91),
+    [2] = vector3(-254.88, 6324.5, 32.58),
+},
+["vehicle"] = {
+    [1] = vector4(-492.08, -337.41, 34.37, 353.45),
+},
+["helicopter"] = {
+    [1] = vector4(-447.55, -312.49, 78.17, 203.92),
+    [2] = vector4(-475.43, 5988.353, 31.716, 31.34),
+},
+["armory"] = {
+    [1] = vector3(-457.66, -309.92, 34.91),
+    [2] = vector3(-245.13, 6315.71, 32.82),
+},
+["roof"] = {
+    [1] = vector4(338.5, -583.85, 74.16, 245.5),
+},
+["main"] = {
+    [1] = vector3(-454.28, -340.11, 34.36),
+},
+["stash"] = {
+    [1] = vector3(-443.67, -310.16, 34.91),
+},
+["beds"] = {
+    [1] = {coords = vector4(-448.27, -283.79, 35.83, 24.77), taken = false, model = 2117668672},
+    [2] = {coords = vector4(-451.32, -285.18, 35.83, 22.19), taken = false, model = 2117668672},
+    [3] = {coords = vector4(-454.77, -286.71, 35.83, 17.99), taken = false, model = 2117668672},
+    -- [4] = {coords = vector4(-460.15, -288.79, 35.83, 20.58), taken = false, model = 2117668672},
+    -- [5] = {coords = vector4(-463.45, -290.25, 35.83, 18.17), taken = false, model = 2117668672},
+    -- [5] = {coords = vector4(-466.86, -291.58, 35.84, 15.24), taken = false, model = 2117668672},
+    -- [2] = {coords = vector4(-470.11, -284.11, 35.84, 203.32), taken = false, model = 2117668672},
+    -- [8] = {coords = vector4(-466.57, -282.75, 35.84, 204.53), taken = false, model = 2117668672},
+    -- [9] = {coords = vector4(-462.9, -281.04, 35.84, 195.23), taken = false, model = 2117668672},
+    -- [10] = {coords = vector4(-459.18, -279.56, 35.84, 193.84), taken = false, model = 2117668672},
+    -- [3] = {coords = vector4(-455.15, -277.92, 35.84, 208.75), taken = false, model = 2117668672},
+    --DrSchnippSchnapp
+    [4] = {coords = vector4(-184.11, 415.18, 111.69, 26.76), taken = false, model = 2117668672},
+    [5] = {coords = vector4(1129.92, 2101.77, 56.17, 181.07), taken = false, model = -1838046182},
+},
+["stations"] = {
+    [1] = {label = Lang:t('info.pb_hospital'), coords = vector4(-454.3, -340.33, 34.36, 72.24)}
+}
 }
 
 Config.AuthorizedVehicles = { -- Vehicles players can use based on their ambulance job grade level
@@ -88,19 +91,64 @@ Config.AuthorizedVehicles = { -- Vehicles players can use based on their ambulan
 	-- Grade 1
 	[1] = {
 		["ambulance"] = "Ambulance",
-
 	},
 	-- Grade 2
 	[2] = {
 		["ambulance"] = "Ambulance",
+        ["fdnyambo"] = "Ambulance 2",
 	},
 	-- Grade 3
 	[3] = {
 		["ambulance"] = "Ambulance",
+        ["fdnyambo"] = "Ambulance 2",
 	},
 	-- Grade 4
 	[4] = {
 		["ambulance"] = "Ambulance",
+        ["bmwexp"] = "Notarzt",
+        ["fdnyambo"] = "Ambulance 2",
+	},
+    -- Grade 5
+	[5] = {
+		["ambulance"] = "Ambulance",
+        ["bmwexp"] = "Notarzt",
+        ["fdnyambo"] = "Ambulance 2",
+	},
+	-- Grade 6
+	[6] = {
+		["ambulance"] = "Ambulance",
+        ["fdnyambo"] = "Ambulance 2",
+        ["wheelchair"] = "Rolli",
+	},
+	-- Grade 7
+	[7] = {
+		["ambulance"] = "Ambulance",
+        ["fdnyambo"] = "Ambulance 2",
+        ["wheelchair"] = "Rolli",
+	},
+	-- Grade 8
+	[8] = {
+		["ambulance"] = "Ambulance",
+        ["bmwexp"] = "Notarzt",
+        ["21yuk"] = "Notarzt2",
+        ["fdnyambo"] = "Ambulance 2",
+        ["wheelchair"] = "Rolli",
+	},
+	-- Grade 9
+	[9] = {
+		["ambulance"] = "Ambulance",
+        ["bmwexp"] = "Notarzt",
+        ["21yuk"] = "Notarzt2",
+        ["fdnyambo"] = "Ambulance 2",
+        ["wheelchair"] = "Rolli",
+	},
+    -- Grade 10
+	[10] = {
+		["ambulance"] = "Ambulance",
+        ["bmwexp"] = "Notarzt",
+        ["21yuk"] = "Notarzt2",
+        ["fdnyambo"] = "Ambulance 2",
+        ["wheelchair"] = "Rolli",
 	}
 }
 
@@ -110,51 +158,75 @@ Config.Items = { -- Items found in the ambulance shop for players with the ambul
     items = {
         [1] = {
             name = "radio",
-            price = 0,
-            amount = 50,
+            price = 150,
+            amount = 500,
             info = {},
             type = "item",
             slot = 1,
         },
         [2] = {
             name = "bandage",
-            price = 0,
-            amount = 50,
+            price = 7,
+            amount = 500,
             info = {},
             type = "item",
             slot = 2,
         },
         [3] = {
             name = "painkillers",
-            price = 0,
-            amount = 50,
+            price = 50,
+            amount = 500,
             info = {},
             type = "item",
             slot = 3,
         },
         [4] = {
             name = "firstaid",
-            price = 0,
-            amount = 50,
+            price = 350,
+            amount = 500,
             info = {},
             type = "item",
             slot = 4,
         },
         [5] = {
             name = "weapon_flashlight",
-            price = 0,
-            amount = 50,
+            price = 50,
+            amount = 500,
             info = {},
             type = "item",
             slot = 5,
         },
         [6] = {
             name = "weapon_fireextinguisher",
-            price = 0,
-            amount = 50,
+            price = 1500,
+            amount = 500,
             info = {},
             type = "item",
             slot = 6,
+        },
+        [7] = {
+            name = "pills",
+            price = 0,
+            amount = 500,
+            info = {},
+            type = "item",
+            slot = 7,
+        },
+        [8] = {
+            name = "lolly",
+            price = 0,
+            amount = 500,
+            info = {},
+            type = "item",
+            slot = 8,
+        },
+        [9] = {
+            name = "pflaster",
+            price = 0,
+            amount = 500,
+            info = {},
+            type = "item",
+            slot = 9,
         },
     }
 }
