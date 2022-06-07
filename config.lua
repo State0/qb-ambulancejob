@@ -158,7 +158,7 @@ Config.Items = { -- Items found in the ambulance shop for players with the ambul
     items = {
         [1] = {
             name = "radio",
-            price = 150,
+            price = 50,
             amount = 500,
             info = {},
             type = "item",
@@ -182,7 +182,7 @@ Config.Items = { -- Items found in the ambulance shop for players with the ambul
         },
         [4] = {
             name = "firstaid",
-            price = 350,
+            price = 50,
             amount = 500,
             info = {},
             type = "item",
