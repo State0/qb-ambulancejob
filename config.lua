@@ -221,8 +221,8 @@ Config.Items = { -- Items found in the ambulance shop for players with the ambul
             slot = 8,
         },
         [9] = {
-            name = "pflaster",
-            price = 0,
+            name = "ifaks",
+            price = 50,
             amount = 500,
             info = {},
             type = "item",
