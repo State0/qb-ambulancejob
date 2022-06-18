@@ -596,6 +596,20 @@ RegisterNetEvent('hospital:client:Revive', function()
     QBCore.Functions.Notify(Lang:t('info.healthy'))
 end)
 
+RegisterNetEvent('hospital:client:Epi', function()
+    local player = PlayerPedId()
+    TriggerServerEvent("hospital:server:RestoreWeaponDamage")
+    SetEntityMaxHealth(player, 50)
+    SetEntityHealth(player, 50)
+    ClearPedBloodDamage(player)
+    SetPlayerSprint(PlayerId(), true)
+    ResetAll()
+    ResetPedMovementClipset(player, 0.0)
+    TriggerServerEvent('hud:server:RelieveStress', 50)
+    emsNotified = false
+    QBCore.Functions.Notify(Lang:t('info.healthy'))
+end)
+
 RegisterNetEvent('hospital:client:SetPain', function()
     ApplyBleed(math.random(1,4))
     if not BodyParts[Config.Bones[24816]].isDamaged then

@@ -129,6 +129,136 @@ RegisterNetEvent('hospital:server:TreatWounds', function(playerId)
 	end
 end)
 
+RegisterNetEvent('hospital:server:GiveMorphium', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('morphium', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['morphium'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:EpiPen', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('epipen', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['morphium'], "remove")
+			TriggerClientEvent("hospital:client:Epi", Patient.PlayerData.source, "full")
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood1', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpackabp', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpackabp'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood2', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpackabn', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpackabn'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood3', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpackap', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpackap'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood4', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpackan', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpackan'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood5', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpackbp', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpackbp'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood6', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpackbn', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpackbn'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood7', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpack0p', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpack0p'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
+RegisterNetEvent('hospital:server:GiveBlood8', function(playerId)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	local Patient = QBCore.Functions.GetPlayer(playerId)
+	if Patient then
+		if Player.PlayerData.job.name =="ambulance" then
+			Player.Functions.RemoveItem('bloodpack0n', 1)
+			TriggerClientEvent('inventory:client:ItemBox', src, QBCore.Shared.Items['bloodpack0n'], "remove")
+			TriggerClientEvent("hospital:client:Revive", Patient.PlayerData.source, "full")	
+		end
+	end
+end)
+
 RegisterNetEvent('hospital:server:AddDoctor', function(job)
 	if job == 'ambulance' then
 		doctorCount = doctorCount + 1
@@ -273,6 +403,106 @@ QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(sour
 	end
 end)
 
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveMorphium", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:EpiPen", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood1", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood2", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood3", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood4", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood5", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood6", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood7", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
+QBCore.Commands.Add("heal", Lang:t('info.heal_player'), {}, false, function(source, _)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.PlayerData.job.name == "ambulance" then
+		TriggerClientEvent("hospital:client:GiveBlood8", src)
+	else
+		TriggerClientEvent('QBCore:Notify', src, Lang:t('error.not_ems'), "error")
+	end
+end)
+
 QBCore.Commands.Add("revivep", Lang:t('info.revive_player'), {}, false, function(source, _)
 	local src = source
 	local Player = QBCore.Functions.GetPlayer(src)
@@ -346,6 +576,86 @@ QBCore.Functions.CreateUseableItem("ifaks", function(source, item)
 	local Player = QBCore.Functions.GetPlayer(src)
 	if Player.Functions.GetItemByName(item.name) ~= nil then
 		TriggerClientEvent("hospital:client:UseIfaks", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("epipen", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseEpipen", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("morphium", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseMorphium", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpackabp", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBpabp", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpackabn", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBpabn", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpackap", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBpap", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpackan", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBpan", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpackbp", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBpbp", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpackbn", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBpbn", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpack0p", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBp0p", src)
+	end
+end)
+
+QBCore.Functions.CreateUseableItem("bloodpack0n", function(source, item)
+	local src = source
+	local Player = QBCore.Functions.GetPlayer(src)
+	if Player.Functions.GetItemByName(item.name) ~= nil then
+		TriggerClientEvent("hospital:client:UseBp0n", src)
 	end
 end)
 

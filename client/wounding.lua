@@ -64,6 +64,247 @@ RegisterNetEvent('hospital:client:UseIfaks', function()
     end)
 end)
 
+RegisterNetEvent('hospital:client:UseBpabp', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bpabp'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpackabp", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpackabp"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseBpabn', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bpabn'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpackabn", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpackabn"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+
+RegisterNetEvent('hospital:client:UseBpap', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bpap'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpackap", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpackap"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseBpan', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bpan'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpackan", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpackan"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseBpbp', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bpbp'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpackbp", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpackbp"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseBpbn', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bpbn'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpackbn", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpackbn"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseBp0p', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bp0p'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpack0p", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpack0p"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseBp0n', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bp0n'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "mp_suicide",
+		anim = "pill",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "bloodpack0n", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["bloodpack0n"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(12, 24))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 30)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
 RegisterNetEvent('hospital:client:UseBandage', function()
     local ped = PlayerPedId()
     QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.bandage'), 4000, false, true, {
@@ -113,6 +354,66 @@ RegisterNetEvent('hospital:client:UsePainkillers', function()
         end
     end, function() -- Cancel
         StopAnimTask(ped, "mp_suicide", "pill", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseEpipen', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.epipen'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "anim@amb@business@weed@weed_inspecting_high_dry@",
+		anim = "weed_inspecting_high_base_inspector",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "epipen", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["epipen"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(40, 50))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 50)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
+        QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+    end)
+end)
+
+RegisterNetEvent('hospital:client:UseMorphium', function()
+    local ped = PlayerPedId()
+    QBCore.Functions.Progressbar("use_bandage", Lang:t('progress.morphium'), 3000, false, true, {
+        disableMovement = false,
+        disableCarMovement = false,
+		disableMouse = false,
+		disableCombat = true,
+    }, {
+		animDict = "anim@amb@business@weed@weed_inspecting_high_dry@",
+		anim = "weed_inspecting_high_base_inspector",
+		flags = 49,
+    }, {}, {}, function() -- Done
+        StopAnimTask(ped, "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
+        TriggerServerEvent("QBCore:Server:RemoveItem", "morphium", 1)
+        TriggerEvent("inventory:client:ItemBox", QBCore.Shared.Items["morphium"], "remove")
+        TriggerServerEvent('hud:server:RelieveStress', math.random(75, 100))
+        SetEntityHealth(ped, GetEntityHealth(ped) + 100)
+        onPainKillers = true
+        if painkillerAmount < 3 then
+            painkillerAmount = painkillerAmount + 1
+        end
+        if math.random(1, 100) < 50 then
+            RemoveBleed(1)
+        end
+    end, function() -- Cancel
+        StopAnimTask(ped, "anim@amb@business@weed@weed_inspecting_high_dry@", "weed_inspecting_high_base_inspector", 1.0)
         QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
     end)
 end)

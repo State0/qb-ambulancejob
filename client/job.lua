@@ -271,6 +271,326 @@ RegisterNetEvent('hospital:client:TreatWounds', function()
     end, 'bandage')
 end)
 
+RegisterNetEvent('hospital:client:EpiPen', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.healing'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:EpiPen", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_epipen'), "error")
+        end
+    end, 'epipen')
+end)
+
+RegisterNetEvent('hospital:client:GiveMorphium', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.healing'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveMorphium", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_morphium'), "error")
+        end
+    end, 'morphium')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood1', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood1", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpackabp')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood2', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood2", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpackabn')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood3', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood3", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpackap')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood4', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood4", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpackan')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood5', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood5", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpackbp')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood6', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood6", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpackbn')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood7', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood7", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpack0p')
+end)
+
+RegisterNetEvent('hospital:client:GiveBlood8', function()
+    QBCore.Functions.TriggerCallback('QBCore:HasItem', function(hasItem)
+        if hasItem then
+            local player, distance = GetClosestPlayer()
+            if player ~= -1 and distance < 5.0 then
+                local playerId = GetPlayerServerId(player)
+                QBCore.Functions.Progressbar("hospital_healwounds", Lang:t('progress.giveblood'), 5000, false, true, {
+                    disableMovement = false,
+                    disableCarMovement = false,
+                    disableMouse = false,
+                    disableCombat = true,
+                }, {
+                    animDict = healAnimDict,
+                    anim = healAnim,
+                    flags = 16,
+                }, {}, {}, function() -- Done
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('success.helped_player'), 'success')
+                    TriggerServerEvent("hospital:server:GiveBlood8", playerId)
+                end, function() -- Cancel
+                    StopAnimTask(PlayerPedId(), healAnimDict, "exit", 1.0)
+                    QBCore.Functions.Notify(Lang:t('error.canceled'), "error")
+                end)
+            else
+                QBCore.Functions.Notify(Lang:t('error.no_player'), "error")
+            end
+        else
+            QBCore.Functions.Notify(Lang:t('error.no_blood'), "error")
+        end
+    end, 'bloodpack0n')
+end)
+
 local check = false
  local function EMSControls(variable)
     CreateThread(function()
